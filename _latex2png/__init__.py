@@ -1,4 +1,4 @@
-from typing import IO, Optional
+from typing import IO
 
 import tempfile
 import sys
@@ -15,8 +15,7 @@ def latex2png(
     png_background: str,
     png_density: int,
     png_quality: int,
-    tex_header_fp: Optional[IO[str]] = None,
-    tex_footer_fp: Optional[IO[str]] = None,
+    use_latex_template: bool = True,
     verbose: bool = False,
 ) -> None:
 
@@ -27,11 +26,7 @@ def latex2png(
     ) as pdf_fp:
 
         text2latex(
-            header_fp=tex_header_fp,
-            body_fp=input_fp,
-            footer_fp=tex_footer_fp,
-            latex_fp=latex_fp,
-            verbose=verbose,
+            text_fp=input_fp, latex_fp=latex_fp, verbose=verbose,
         )
 
         latex2pdf(
