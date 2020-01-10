@@ -14,7 +14,6 @@ This program uses stdin/stdout by default.  For example, to write a LaTeX snippe
 
 ```bash
 $ cat res/example.tex | ./latex2png > res/example.png
-The best equation is $ e^{i\pi} = -1 $! It uses $ e^{x+iy} = e^x\left(\cos{y} + i\sin{y}\right) $
 ```
 
 In order to generate this snippet: ![example.png](res/example.png)
