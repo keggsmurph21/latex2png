@@ -25,9 +25,14 @@ def latex2pdf(*, latex_fp: IO[str], pdf_fp: IO[bytes], verbose: bool = False) ->
     if verbose:
         print(f"$ {cmd}", file=sys.stderr)
 
-    stdout = subprocess.check_output(
-        cmd.split(), stderr=sys.stderr if verbose else subprocess.DEVNULL
-    )
+    try:
+        stdout = subprocess.check_output(
+            cmd.split(), stderr=sys.stderr if verbose else subprocess.DEVNULL
+        )
+    except subprocess.CalledProcessError as e:
+        raise ValueError(
+            f'command "{cmd}" returned with code {e.returncode}:\n{e.output.decode()}'
+        ) from e
 
     if verbose:
         sys.stderr.buffer.write(stdout)

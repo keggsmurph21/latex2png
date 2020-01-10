@@ -38,6 +38,11 @@ def pdf2png(
     if verbose:
         print(f"$ {cmd}", file=sys.stderr)
 
-    return subprocess.check_output(
-        cmd.split(), stderr=sys.stderr if verbose else subprocess.DEVNULL,
-    )
+    try:
+        return subprocess.check_output(
+            cmd.split(), stderr=sys.stderr if verbose else subprocess.DEVNULL,
+        )
+    except subprocess.CalledProcessError as e:
+        raise ValueError(
+            f'command "{cmd}" returned with code {e.returncode}:\n{e.output.decode()}'
+        ) from e
