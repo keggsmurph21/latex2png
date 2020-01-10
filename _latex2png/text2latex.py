@@ -16,7 +16,7 @@ def text2latex(
     *,
     text_fp: IO[str],
     latex_fp: IO[str],
-    use_latex_template: bool = True,
+    use_latex_template: bool,
     verbose: bool = False,
 ) -> None:
 

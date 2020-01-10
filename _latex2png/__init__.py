@@ -15,7 +15,7 @@ def latex2png(
     png_background: str,
     png_density: int,
     png_quality: int,
-    use_latex_template: bool = True,
+    use_latex_template: bool,
     verbose: bool = False,
 ) -> None:
 
@@ -26,7 +26,10 @@ def latex2png(
     ) as pdf_fp:
 
         text2latex(
-            text_fp=input_fp, latex_fp=latex_fp, verbose=verbose,
+            text_fp=input_fp,
+            latex_fp=latex_fp,
+            use_latex_template=use_latex_template,
+            verbose=verbose,
         )
 
         latex2pdf(
