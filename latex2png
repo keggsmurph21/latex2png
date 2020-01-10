@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# latex2png
+#
+# This is the entrypoint for the `latex2png` program,
+# which generates PNG images based on LaTeX input.
+#
+# Usage:
+#   $ ./latex2png --help
+#
+# Issue tracker:
+#   https://github.com/keggsmurph21/latex2png/issues
+#
+# Author:
+#   Kevin Murphy <kevin (at) murp (dot) us>
+
+cd "$(dirname "$0")" && python3 -m _latex2png "$@"

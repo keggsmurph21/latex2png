@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -euo pipefail
+
+DEFAULT_POLICY='<policy domain="coder" rights="none" pattern="PDF" />'
+UPDATED_POLICY='<policy domain="coder" rights="read\|write" pattern="PDF" />'
+
+set -x
+sudo sed -E -i \
+    "s,$DEFAULT_POLICY,$UPDATED_POLICY," \
+    -i /etc/ImageMagick-6/policy.xml
