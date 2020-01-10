@@ -4,7 +4,7 @@ import sys
 
 
 TEMPLATE = """\
-\\documentclass[varwidth,convert,margin=4pt]{{standalone}}
+\\documentclass[varwidth,convert,margin={margin}pt]{{standalone}}
 \\usepackage{{amsmath}}
 \\begin{{document}}
 {body}
@@ -17,6 +17,7 @@ def text2latex(
     text_fp: IO[str],
     latex_fp: IO[str],
     use_latex_template: bool,
+    margin: int,
     verbose: bool = False,
 ) -> None:
 
@@ -24,7 +25,7 @@ def text2latex(
         body = text_fp.read()
         if not body.strip():
             raise RuntimeError("Cannot generate image for empty string!")
-        content = TEMPLATE.format(body=body)
+        content = TEMPLATE.format(body=body, margin=margin)
     else:
         content = text_fp.read()
 

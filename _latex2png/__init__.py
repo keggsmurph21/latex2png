@@ -16,6 +16,7 @@ def latex2png(
     png_density: int,
     png_quality: int,
     use_latex_template: bool,
+    latex_template_margin: int,
     verbose: bool = False,
 ) -> None:
 
@@ -29,6 +30,7 @@ def latex2png(
             text_fp=input_fp,
             latex_fp=latex_fp,
             use_latex_template=use_latex_template,
+            margin=latex_template_margin,
             verbose=verbose,
         )
 

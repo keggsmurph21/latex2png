@@ -14,6 +14,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--no-latex-template", dest="use_latex_template", action="store_false"
     )
+    parser.add_argument("--latex-template-margin", type=int, default=4)
     parser.add_argument("--png-density", type=int, default=300)
     parser.add_argument("--png-quality", type=int, default=100)
     parser.add_argument("--png-background", default="#ffffff")
@@ -23,6 +24,7 @@ if __name__ == "__main__":
         input_fp=args.input_fp,
         output_fp=args.output_fp,
         use_latex_template=args.use_latex_template,
+        latex_template_margin=args.latex_template_margin,
         png_background=args.png_background,
         png_density=args.png_density,
         png_quality=args.png_quality,
