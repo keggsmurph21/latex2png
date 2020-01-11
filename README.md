@@ -2,6 +2,10 @@
 
 A tiny command-line utility for generating PNG files from LaTeX snippets.  The entrypoint is `./latex2png`.
 
+```bash
+$ echo 'Hello! Would you like a slice of $ \pi $?' | l2p
+```
+
 ### Usage
 
 Let's assume we have the following file:
