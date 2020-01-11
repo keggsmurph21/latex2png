@@ -25,6 +25,18 @@ $ cat res/example.tex | ./latex2png | xclip -selection c -t image/png -i  # Ubun
 $ cat res/example.tex | ./latex2png | pbcopy                              # MacOS
 ```
 
+To get the most out of this, we could add the following to our `.bashrc` (on Linux)
+```bash
+l2p() {
+    /path/to/latex2png/latex2png "$@" | xclip -selection c -t image/png -i
+}
+```
+
+Then we'll be able to get a snippet into our system clipboard with just
+```bash
+$ cat res/example.tex | l2p
+```
+
 To use filepaths, you can pass `-i $input_file` and `-o $output_file`, as in
 ```bash
 $ ./latex2png -i res/example.tex -o res/example.png
