@@ -21,7 +21,7 @@ install_for_linux() {
 
 
 case "$OSTYPE" in
-    darwin) install_for_macos ;;
+    darwin*) install_for_macos ;;
     linux-gnu) install_for_linux ;;
     *) fail "Unknown OSTYPE: $OSTYPE" ;;
 esac
