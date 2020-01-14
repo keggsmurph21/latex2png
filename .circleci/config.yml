@@ -1,6 +1,6 @@
 version: 2
 jobs:
-    build:
+    build_macos:
         macos:
             xcode: "10.0.0"
         steps:
@@ -10,3 +10,17 @@ jobs:
             - run: which pdflatex
             - run: sudo pip install nox
             - run: nox
+    build_ubuntu:
+        docker:
+            - image: circleci/python:3.6
+        steps:
+            - checkout
+            - run: ./scripts/install
+            - run: sudo pip install nox
+            - run: nox
+workflows:
+    version: 2
+    build_all:
+        jobs:
+            - build_macos
+            - build_ubuntu
