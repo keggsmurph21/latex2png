@@ -30,7 +30,7 @@ then converted via `imagemagick` into a PNG document, which is then written
 to either stdout or a `-o` file (if provided).
 
 Basic usage:
- $ echo '$ e^{{i\pi}} + 1 = 0 $' | ./latex2png > /tmp/eulers-identity.png
+ $ echo '$ e^{{i\\pi}} + 1 = 0 $' | ./latex2png > /tmp/eulers-identity.png
 
 For more info, check out the README.md file or the source repository at
     https://github.com/keggsmurph21/latex2png
