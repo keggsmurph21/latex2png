@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 fail() {
     echo "$@" >&2
@@ -9,8 +9,10 @@ fail() {
 
 
 install_for_macos() {
-    echo MacOS detected
-    exit 2
+    echo MacOS detected, installing via brew ... >&2
+    brew update
+    HOMEBREW_NO_AUTO_UPDATE=1 brew install imagemagick
+    HOMEBREW_NO_AUTO_UPDATE=1 brew cask install basictex
 }
 
 

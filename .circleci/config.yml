@@ -6,5 +6,7 @@ jobs:
         steps:
             - checkout
             - run: ./scripts/install
+            - run: which convert
+            - run: which pdflatex
             - run: sudo pip install nox
             - run: nox
