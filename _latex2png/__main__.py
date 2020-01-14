@@ -10,7 +10,7 @@ class MyFormatter(
     pass
 
 
-if __name__ == "__main__":
+def main():
 
     parser = argparse.ArgumentParser(
         prog="latex2png",
@@ -95,3 +95,7 @@ For more info, check out the README.md file or the source repository at
         png_quality=args.png_quality,
         verbose=args.verbose,
     )
+
+
+if __name__ == "__main__":
+    main()
