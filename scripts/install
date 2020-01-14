@@ -11,8 +11,13 @@ fail() {
 install_for_macos() {
     echo MacOS detected, installing via brew ... >&2
     brew update
-    HOMEBREW_NO_AUTO_UPDATE=1 brew install imagemagick
-    HOMEBREW_NO_AUTO_UPDATE=1 brew cask install basictex
+    HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite python3
+    # These can have transient errors ...
+    HOMEBREW_NO_AUTO_UPDATE=1 brew install imagemagick || true
+    HOMEBREW_NO_AUTO_UPDATE=1 brew cask install basictex || true
+    export PATH="$PATH:/Library/TeX/texbin"
+    sudo tlmgr update --self
+    sudo tlmgr install standalone varwidth
 }
 
 
@@ -32,3 +37,5 @@ case "$OSTYPE" in
     linux-gnu) install_for_linux ;;
     *) fail "Unknown OSTYPE: $OSTYPE" ;;
 esac
+
+echo Installation successful >&2
