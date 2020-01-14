@@ -10,4 +10,5 @@ setup(
     description="A tool for converting LaTeX snippets to PNG images",
     install_requires=[],
     entry_points={"console_scripts": ["latex2png = _latex2png.__main__:main"]},
+    extras_require={"dev": ["flake8", "black", "mypy", "pytest"]},
 )
