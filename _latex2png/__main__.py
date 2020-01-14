@@ -10,7 +10,7 @@ class MyFormatter(
     pass
 
 
-def main():
+def main() -> None:
 
     parser = argparse.ArgumentParser(
         prog="latex2png",
