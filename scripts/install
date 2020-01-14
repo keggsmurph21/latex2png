@@ -15,8 +15,13 @@ install_for_macos() {
 
 
 install_for_linux() {
-    echo Linux detected
-    exit 3
+    if which apt-get &> /dev/null; then
+        echo Debian/Ubuntu detected, installing via apt-get ... >&2
+        sudo apt-get update
+        sudo apt-get install -y imagemagick texlive-latex-extra
+    else
+        fail "No known package manager for $OSTYPE \($(uname -a)\), quitting"
+    fi
 }
 
 
