@@ -10,14 +10,14 @@ $ echo 'Hello! Would you like a slice of $ \pi $?' | l2p
 
 Let's assume we have the following file:
 ```bash
-$ cat res/example.tex
+$ cat res/example.tex-snippet
 The best equation is $ e^{i\pi} = -1 $! It uses $ e^{x+iy} = e^x\left(\cos{y} + i\sin{y}\right) $.
 ```
 
 This program uses stdin/stdout by default.  For example, to write a LaTeX snippet to `res/example.png`, you could do
 
 ```bash
-$ cat res/example.tex | ./latex2png > res/example.png
+$ cat res/example.tex-snippet | ./latex2png > res/example.png
 ```
 
 In order to generate this snippet: ![example.png](res/example.png)
@@ -25,8 +25,8 @@ In order to generate this snippet: ![example.png](res/example.png)
 It's also useful to pipe this directly to your clipboard.  You can do that with
 
 ```bash
-$ cat res/example.tex | ./latex2png | xclip -selection c -t image/png -i  # Ubuntu
-$ cat res/example.tex | ./latex2png | pbcopy                              # MacOS
+$ cat res/example.tex-snippet | ./latex2png | xclip -selection c -t image/png -i  # Ubuntu
+$ cat res/example.tex-snippet | ./latex2png | pbcopy                              # MacOS
 ```
 
 To get the most out of this, we could add the following to our `.bashrc` (on Linux)
@@ -38,12 +38,12 @@ l2p() {
 
 Then we'll be able to get a snippet into our system clipboard with just
 ```bash
-$ cat res/example.tex | l2p
+$ cat res/example.tex-snippet | l2p
 ```
 
 To use filepaths, you can pass `-i $input_file` and `-o $output_file`, as in
 ```bash
-$ ./latex2png -i res/example.tex -o res/example.png
+$ ./latex2png -i res/example.tex-snippet -o res/example.png
 ```
 
 For the full API, check
