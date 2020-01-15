@@ -6,6 +6,8 @@ A tiny command-line utility for generating PNG files from LaTeX snippets.  The e
 $ echo 'Hello! Would you like a slice of $ \pi $?' | l2p
 ```
 
+[![latex2png](https://circleci.com/gh/keggsmurph21/latex2png.svg?style=svg)](https://circleci.com/gh/keggsmurph21/latex2png)
+
 ### Usage
 
 Let's assume we have the following file:
@@ -53,13 +55,12 @@ $ ./latex2png --help
 
 ### Installation
 
-This script relies on the system binaries `pdflatex` (LaTeX &rarr; PDF) and `convert` (PDF &rarr; PNG, provided by [ImageMagick](https://imagemagick.org/index.php)).  On Ubuntu, you can install those with
+To install on MacOS or Debian-based systems, run
 ```bash
-$ sudo apt-get update
-$ sudo apt-get install texlive-latex-extra imagemagick
+./scripts/install
 ```
 
-Further, it uses the [`standalone`](https://ctan.org/pkg/standalone) LaTeX package, which may or may not be included in your distribution.
+If you'd like to add support for another operating system, just [open an issue](https://github.com/keggsmurph21/latex2png/issues/new) or submit a pull request :^).
 
 ### Troubleshooting
 
