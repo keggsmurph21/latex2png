@@ -8,7 +8,7 @@ jobs:
             - run: ./scripts/install
             - run: which convert
             - run: which pdflatex
-            - run: sudo pip install nox
+            - run: sudo python3 -m pip install nox
             - run: nox
     build_ubuntu:
         docker:
@@ -16,7 +16,7 @@ jobs:
         steps:
             - checkout
             - run: ./scripts/install
-            - run: sudo pip install nox
+            - run: sudo python3 -m pip install nox
             - run: nox
 workflows:
     version: 2
