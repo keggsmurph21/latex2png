@@ -1,13 +1,13 @@
 # latex2png
 
+[![Build Status](https://circleci.com/gh/keggsmurph21/latex2png.svg?style=shield)](https://circleci.com/gh/keggsmurph21/latex2png)
+[![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
+
 A tiny command-line utility for generating PNG files from LaTeX snippets.  The entrypoint is `./latex2png`.
 
 ```bash
 $ echo 'Hello! Would you like a slice of $ \pi $?' | l2p
 ```
-
-[![Build Status](https://circleci.com/gh/keggsmurph21/latex2png.svg?style=shield)](https://circleci.com/gh/keggsmurph21/latex2png)
-[![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
 
 ### Usage
 
