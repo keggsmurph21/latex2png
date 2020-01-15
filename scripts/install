@@ -25,7 +25,7 @@ install_for_linux() {
     if which apt-get &> /dev/null; then
         echo Debian/Ubuntu detected, installing via apt-get ... >&2
         sudo apt-get update
-        sudo apt-get install -y imagemagick texlive-latex-extra
+        sudo apt-get install -y imagemagick texlive-latex-extra ghostscript
         ./scripts/enable-imagemagick-permissions
     else
         fail "No known package manager for $OSTYPE \($(uname -a)\), quitting"
