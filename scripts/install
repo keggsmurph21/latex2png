@@ -10,23 +10,28 @@ fail() {
 
 install_for_macos() {
     echo MacOS detected, installing via brew ... >&2
+    set -x
     brew update
-    HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite python3
     # These can have transient errors ...
-    HOMEBREW_NO_AUTO_UPDATE=1 brew install imagemagick || true
+    HOMEBREW_NO_AUTO_UPDATE=1 brew install imagemagick ghostscript || true
     HOMEBREW_NO_AUTO_UPDATE=1 brew cask install basictex || true
-    export PATH="$PATH:/Library/TeX/texbin"
+    HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite python3
+    echo 'export PATH="$PATH:/Library/TeX/texbin"' >> "$HOME/.bash_profile"
+    source "$HOME/.bash_profile"
     sudo tlmgr update --self
     sudo tlmgr install standalone varwidth
+    set +x
 }
 
 
 install_for_linux() {
     if which apt-get &> /dev/null; then
         echo Debian/Ubuntu detected, installing via apt-get ... >&2
+        set -x
         sudo apt-get update
         sudo apt-get install -y imagemagick texlive-latex-extra ghostscript
         ./scripts/enable-imagemagick-permissions
+        set +x
     else
         fail "No known package manager for $OSTYPE \($(uname -a)\), quitting"
     fi
